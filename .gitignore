@@ -1,0 +1,67 @@
+# Spring Initializr help file
+HELP.md
+
+# Compiled class files
+target/
+*.class
+
+# Log files
+*.log
+
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Maven wrapper
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Virtual Machine / OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment and sensitive configuration files
+.env
+.env.local
+*.env
+application-local.properties
+application-secret.properties
+
+# STS
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# VS Code
+.vscode/
+
+# Postman local workspace metadata
+.postman/

@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "890251bb-f7ea-4d89-9801-1b7fcf761a32",
+		"name": "CampusConnect API",
+		"description": "Postman collection for testing the CampusConnect Spring Boot Backend APIs (Clubs, Events, and Registrations).",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Clubs",
+			"item": [
+				{
+					"name": "Get All Clubs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/clubs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"clubs"
+							]
+						},
+						"description": "Fetch all registered campus clubs."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Events",
+			"item": [
+				{
+					"name": "Get All Events",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/events",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"events"
+							]
+						},
+						"description": "Fetch all events."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Event By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/events/101",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"101"
+							]
+						},
+						"description": "Fetch details of a single event by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Add Event",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"event_id\": 109,\n    \"club_id\": 1,\n    \"event_name\": \"AI & Cloud Hackathon\",\n    \"title\": \"Hackathon 2026\",\n    \"description_of_event\": \"Build innovative AI-driven cloud solutions\",\n    \"category\": \"Technical\",\n    \"event_date\": \"2026-12-15T09:30:00\",\n    \"venue\": \"Auditorium A\",\n    \"capacity\": 75,\n    \"status_of_event\": \"open\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/events",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"events"
+							]
+						},
+						"description": "Add a new campus event."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Event",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"club_id\": 1,\n    \"event_name\": \"AI & Cloud Hackathon - Updated\",\n    \"title\": \"Hackathon 2026\",\n    \"description_of_event\": \"Build innovative AI-driven cloud solutions with prizes!\",\n    \"category\": \"Technical\",\n    \"event_date\": \"2026-12-15T09:30:00\",\n    \"venue\": \"Auditorium A\",\n    \"capacity\": 90,\n    \"status_of_event\": \"open\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/events/109",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"109"
+							]
+						},
+						"description": "Update an existing event."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Event",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/events/109",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"109"
+							]
+						},
+						"description": "Delete an event by ID."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Registrations",
+			"item": [
+				{
+					"name": "Get All Registrations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/registrations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"registrations"
+							]
+						},
+						"description": "Fetch all event registrations."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Registrations By Event ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/registrations/event/101",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"registrations",
+								"event",
+								"101"
+							]
+						},
+						"description": "Fetch participants registered for a specific event."
+					},
+					"response": []
+				},
+				{
+					"name": "Register Student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"registration_id\": 13,\n    \"event_id\": 101,\n    \"student_name\": \"Nigamanth\",\n    \"student_email\": \"student.dev@snuchennai.edu.in\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/registrations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"registrations"
+							]
+						},
+						"description": "Register a student for an event. Performs validation for event existence, required fields, duplicate registration, and capacity check."
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Registration",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/registrations/cancel/13",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"registrations",
+								"cancel",
+								"13"
+							]
+						},
+						"description": "Cancel an active registration by registration ID."
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}
