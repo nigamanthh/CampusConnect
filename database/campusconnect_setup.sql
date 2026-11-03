@@ -95,3 +95,4 @@ INSERT INTO `registrations` (`registration_id`, `event_id`, `student_name`, `stu
 (12, 101, 'Test Student', 'capacity_test@gmail.com', '2026-11-02 21:54:07', 'REGISTERED');
 
 SET FOREIGN_KEY_CHECKS = 1;
+

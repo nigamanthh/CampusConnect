@@ -53,3 +53,4 @@ ON DUPLICATE KEY UPDATE `student_name`=VALUES(`student_name`), `student_email`=V
 
 -- Re-enable foreign key checks
 SET FOREIGN_KEY_CHECKS = 1;
+
