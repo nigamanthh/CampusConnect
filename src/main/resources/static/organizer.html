@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizer Portal | CampusConnect</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="organizer.js" defer></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">CampusConnect</a>
+        <div class="nav-links">
+            <a href="#dashboard">Dashboard</a>
+            <a href="#manage">Events</a>
+            <a href="#participants">Participants</a>
+            <a href="student.html">Student</a>
+        </div>
+    </nav>
+
+    <main class="page">
+
+        <section class="page-heading">
+            <p class="eyebrow">ORGANIZER PORTAL</p>
+            <h1>Manage your campus events.</h1>
+            <p class="subtitle">Create events and keep everything organized.</p>
+        </section>
+
+        <section id="dashboard">
+            <div class="section-heading">
+                <h2>Dashboard</h2>
+                <p>An overview of your campus activities.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <p>Total Events</p>
+                    <h2 id="total-events">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <p>Total Registrations</p>
+                    <h2 id="total-registrations">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <p>Available Seats</p>
+                    <h2 id="available-seats">0</h2>
+                </div>
+            </div>
+        </section>
+
+        <section id="manage" class="content-section">
+            <div class="section-heading">
+                <h2>Manage Events</h2>
+                <p>Add a new event or update an existing one.</p>
+            </div>
+
+            <form id="event-form" class="panel form">
+                <h3 id="event-form-heading">Create an Event</h3>
+
+                <input type="hidden" id="edit-event-id">
+
+                <div class="form-grid">
+                    <div>
+                        <label for="event-id">Event ID</label>
+                        <input type="number" id="event-id" required>
+                    </div>
+
+                    <div>
+                        <label for="club-id">Club ID</label>
+                        <input type="number" id="club-id" required>
+                    </div>
+                </div>
+
+                <label for="event-name">Event Name</label>
+                <input type="text" id="event-name" required>
+
+                <label for="event-title">Event Title</label>
+                <input type="text" id="event-title" required>
+
+                <label for="event-description">Description</label>
+                <textarea id="event-description" rows="3"></textarea>
+
+                <div class="form-grid">
+                    <div>
+                        <label for="event-category">Category</label>
+                        <select id="event-category" required>
+                            <option value="">Choose category</option>
+                            <option value="Technical">Technical</option>
+                            <option value="Workshop">Workshop</option>
+                            <option value="Competition">Competition</option>
+                            <option value="Cultural">Cultural</option>
+                            <option value="Business">Business</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="event-status">Status</label>
+                        <select id="event-status" required>
+                            <option value="open">Open</option>
+                            <option value="closed">Closed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <label for="event-date">Date and Time</label>
+                <input type="datetime-local" id="event-date" required>
+
+                <label for="event-venue">Venue</label>
+                <input type="text" id="event-venue" required>
+
+                <label for="event-capacity">Capacity</label>
+                <input type="number" id="event-capacity" min="1" required>
+
+                <div class="button-row">
+                    <button type="submit" id="save-event-btn">Create Event</button>
+                    <button type="button" class="secondary-btn"
+                            id="reset-event-form">Clear</button>
+                </div>
+
+                <p id="event-message" class="message"></p>
+            </form>
+
+            <div id="manage-events-container" class="event-grid">
+                <p>Loading events...</p>
+            </div>
+        </section>
+
+        <section id="participants" class="content-section">
+            <div class="section-heading">
+                <h2>Participants</h2>
+                <p>View and manage event registrations.</p>
+            </div>
+
+            <div class="panel">
+                <label for="participant-event">Select Event</label>
+                <select id="participant-event">
+                    <option value="">Choose an event</option>
+                </select>
+
+                <button type="button" id="load-participants">
+                    View Participants
+                </button>
+
+                <div id="participants-container" class="table-wrapper"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 CampusConnect</p>
+        <a href="index.html">Back to Home</a>
+    </footer>
+
+</body>
+</html>
