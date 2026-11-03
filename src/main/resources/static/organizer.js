@@ -4,19 +4,28 @@ const API = "/api";
 let events = [];
 let registrations = [];
 
+
 async function request(url, options = {}) {
     const response = await fetch(API + url, {
         headers: { "Content-Type": "application/json" },
         ...options
     });
 
+    const text = await response.text();
+
     if (!response.ok) {
-        throw new Error(await response.text() || response.status);
+        throw new Error(text || response.status);
     }
 
-    const text = await response.text();
-    return text ? JSON.parse(text) : null;
+    if (!text) return null;
+
+    try {
+        return JSON.parse(text);
+    } catch {
+        return text;
+    }
 }
+
 
 function escapeHTML(value) {
     return String(value ?? "").replace(/[&<>"']/g, char => ({
